@@ -7,16 +7,24 @@ class ShowsService {
     showsStore.set(shows);
   }
 
-  add(show: ShowsModel) {
-    showsStore.add(show);
+  add(show: ShowsModel, options: { prepend?: boolean }) {
+    showsStore.add(show, options);
   }
 
-  update(entityId: string, show: Partial<ShowsModel>) {
+  update(entityId: number, show: Partial<ShowsModel>) {
     showsStore.update(entityId, show);
   }
 
-  setActive(entityId: string) {
+  move(from: number, to: number) {
+    showsStore.move(from, to);
+  }
+
+  setActive(entityId: number) {
     showsStore.setActive(entityId);
+  }
+
+  setNextActive() {
+    showsStore.setActive({ next: true });
   }
 }
 

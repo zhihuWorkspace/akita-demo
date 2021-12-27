@@ -5,15 +5,16 @@ import { StoreNames } from '../../utils/store-names';
 
 
 export interface ShowsModel {
-  id: string
+  id: number
   name: string
   image: {
     medium: string,
     original: string,
   },
+  summary: string
 }
 
-export interface ShowsState extends EntityState<ShowsModel, string>, ActiveState { }
+export interface ShowsState extends EntityState<ShowsModel, number>, ActiveState { }
 
 
 const initialState: ShowsState = {
