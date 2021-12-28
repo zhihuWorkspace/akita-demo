@@ -1,4 +1,4 @@
-import { createStore } from '@datorama/akita';
+import { createStore, persistState } from '@datorama/akita';
 import { produce } from 'immer';
 
 import { StoreNames } from '../../utils/store-names';
@@ -26,4 +26,8 @@ export const sessionStore = createStore<SessionModel>(initialState, {
   name: StoreNames.Session,
   producerFn: produce,
   resettable: true,
+});
+
+persistState({
+  include: [StoreNames.Session],
 });

@@ -1,4 +1,4 @@
-import { createEntityStore, EntityState, ActiveState } from '@datorama/akita';
+import { createEntityStore, EntityState, ActiveState, persistState } from '@datorama/akita';
 import { produce } from 'immer';
 
 import { StoreNames } from '../../utils/store-names';
@@ -25,4 +25,8 @@ export const showsStore = createEntityStore<ShowsState>(initialState, {
   name: StoreNames.Shows,
   producerFn: produce,
   resettable: true,
+});
+
+persistState({
+  include: [StoreNames.Shows],
 });
